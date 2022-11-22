@@ -4,7 +4,7 @@ import ResultContainer from './components/ResultContainer/ResultContainer';
 
 function App() {
   return (
-    <div className='py-3 flex flex-col'>
+    <div className='py-3 md:py-10 h-screen flex flex-col justify-between'>
       <InputField />
       <ResultContainer />
       <FechaHora />
