@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('assets/background.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.scroll-x-hidden {
+  scrollbar-width: none; /* for FireFox */
+  overflow-x: scroll;
+}
+
+.scroll-x-hidden::-webkit-scrollbar {
+  display: none; /* for Chrome and Safari */
+}
