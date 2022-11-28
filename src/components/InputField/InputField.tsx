@@ -15,7 +15,7 @@ const InputField: React.FC<Props> = ({ setCityName }) => {
   };
 
   return (
-    <form className='mx-3 md:max-w-lg md:mt-10 md:mx-auto' onSubmit={handleSubmit}>
+    <form className='mx-3 md:max-w-lg mt-2 md:mt-10 md:mx-auto' onSubmit={handleSubmit}>
       <div className='bg-violet-900/10 p-3 rounded-lg space-y-1'>
         <label htmlFor='ciudad' className='font-bold tracking-wider uppercase text-violet-200'>
           Busca una ciudad

@@ -36,15 +36,15 @@ const PronosticoDiario: React.FC<Props> = ({ hourlyWeather }) => {
     }
   };
 
-  const dt = DateTime.local().setLocale('es-AR').toLocaleString({ weekday: 'long' });
-
   return (
-    <div className='relative md:max-w-2xl mx-auto mt-8'>
+    <div className='relative md:max-w-2xl mx-auto mt-10'>
       <p className='uppercase text-sm font-semibold text-violet-300 mb-2'>Pronostico diario</p>
       <div ref={scrollSection} className='flex gap-2 scroll-x-hidden'>
         {hourlyWeather.map((item) => (
           <div className='bg-violet-900/5 rounded-md p-4 px-8 text-center' key={item.dt_txt}>
-            <p className='text-xs text-violet-300 whitespace-nowrap capitalize'>{dt}</p>
+            <p className='text-xs text-violet-300 whitespace-nowrap capitalize'>
+              {DateTime.fromSQL(item.dt_txt).setLocale('es-AR').toFormat('EEEE')}
+            </p>
             <p className='text-sm'>{item.dt_txt.slice(11, 16)}</p>
             <img
               src={`${API_ICON_URL}${item.weather[0].icon}.png`}

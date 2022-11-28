@@ -13,7 +13,7 @@ const ResultadoClima: React.FC<Props> = ({ currentWeather }) => {
 
   return (
     <div className='text-center mb-4'>
-      <p className='text-3xl font-bold uppercase tracking-wider text-violet-300'>
+      <p className='text-3xl mb-4 font-bold uppercase tracking-wider text-violet-300'>
         {currentWeather.name}, {currentWeather.sys.country}
       </p>
       <p className='text-7xl md:text-[100px] font-semibold relative'>
