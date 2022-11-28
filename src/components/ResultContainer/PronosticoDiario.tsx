@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { HourlyWeatherProps } from '../../interfaces/HourlyWeatherProps';
 import { API_ICON_URL } from '../../utils/api';
+import { DateTime } from 'luxon';
 
 type Props = {
   hourlyWeather: HourlyWeatherProps[];
@@ -35,15 +36,15 @@ const PronosticoDiario: React.FC<Props> = ({ hourlyWeather }) => {
     }
   };
 
+  const dt = DateTime.local().setLocale('es-AR').toLocaleString({ weekday: 'long' });
+
   return (
     <div className='relative md:max-w-2xl mx-auto mt-8'>
       <p className='uppercase text-sm font-semibold text-violet-300 mb-2'>Pronostico diario</p>
       <div ref={scrollSection} className='flex gap-2 scroll-x-hidden'>
         {hourlyWeather.map((item) => (
           <div className='bg-violet-900/5 rounded-md p-4 px-8 text-center' key={item.dt_txt}>
-            <p className='text-xs text-violet-300 whitespace-nowrap capitalize'>
-              {new Date(item.dt_txt).toLocaleDateString('es-ES', { weekday: 'long' }).toString()}
-            </p>
+            <p className='text-xs text-violet-300 whitespace-nowrap capitalize'>{dt}</p>
             <p className='text-sm'>{item.dt_txt.slice(11, 16)}</p>
             <img
               src={`${API_ICON_URL}${item.weather[0].icon}.png`}
@@ -66,3 +67,5 @@ const PronosticoDiario: React.FC<Props> = ({ hourlyWeather }) => {
 };
 
 export default PronosticoDiario;
+
+// new Date(item.dt_txt).toLocaleDateString('es-ES', { weekday: 'long' }).toString()
