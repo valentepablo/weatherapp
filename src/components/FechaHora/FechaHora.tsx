@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { CurrentWeatherProps } from '../../interfaces/CurrentWeatherProps';
 import * as moment from 'moment';
 
@@ -6,16 +7,19 @@ type Props = {
 };
 
 const FechaHora: React.FC<Props> = ({ currentWeather }) => {
-  if (currentWeather === null) return <div></div>;
+  const [horaLocal, setHoraLocal] = useState('');
 
-  const timezone = currentWeather.timezone;
-  const timezoneInMins = timezone / 60;
-  const varPrueba = moment();
-  const currentTime = varPrueba.utcOffset(timezoneInMins).format('hh:mm A');
+  useEffect(() => {
+    const timezone = currentWeather?.timezone;
+    const timezoneInMins = timezone! / 60;
+    setHoraLocal(moment().utcOffset(timezoneInMins).format('hh:mm A'));
+  }, [currentWeather]);
+
+  if (currentWeather === null) return <div></div>;
 
   return (
     <div className='mt-6 mb-2 md:mt-20 text-xs text-center text-violet-400'>
-      Cambiar fecha, 2022 - {currentTime}
+      Cambiar fecha, 2022 - {horaLocal}
     </div>
   );
 };
