@@ -14,7 +14,7 @@ const FechaHora: React.FC<Props> = ({ currentWeather }) => {
 
   return (
     <div className='mt-6 mb-2 md:mt-20 text-xs text-center text-violet-400'>
-      Noviembre 22, 2022 - {currentTime}
+      Cambiar fecha, 2022 - {currentTime}
     </div>
   );
 };
