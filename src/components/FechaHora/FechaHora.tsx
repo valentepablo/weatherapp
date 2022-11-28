@@ -10,7 +10,8 @@ const FechaHora: React.FC<Props> = ({ currentWeather }) => {
 
   const timezone = currentWeather.timezone;
   const timezoneInMins = timezone / 60;
-  const currentTime = moment().utcOffset(timezoneInMins).format('hh:mm A');
+  const varPrueba = moment();
+  const currentTime = varPrueba.utcOffset(timezoneInMins).format('hh:mm A');
 
   return (
     <div className='mt-6 mb-2 md:mt-20 text-xs text-center text-violet-400'>
