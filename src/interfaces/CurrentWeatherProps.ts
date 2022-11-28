@@ -1,10 +1,15 @@
 export interface CurrentWeatherProps {
-  timezone: number;
+  coord: Coord;
   weather: Weather[];
   main: Main;
   wind: Wind;
   sys: Sys;
   name: string;
+}
+
+export interface Coord {
+  lon: number;
+  lat: number;
 }
 
 export interface Main {

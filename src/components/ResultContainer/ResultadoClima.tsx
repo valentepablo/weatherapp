@@ -2,7 +2,6 @@ import { FaTemperatureLow } from 'react-icons/fa';
 import { BiDroplet } from 'react-icons/bi';
 import { FiWind } from 'react-icons/fi';
 import { CurrentWeatherProps } from '../../interfaces/CurrentWeatherProps';
-import { HourlyWeatherProps } from '../../interfaces/HourlyWeatherProps';
 import { API_ICON_URL } from '../../utils/api';
 
 type Props = {
@@ -17,11 +16,11 @@ const ResultadoClima: React.FC<Props> = ({ currentWeather }) => {
       <p className='text-3xl font-bold uppercase tracking-wider text-violet-300'>
         {currentWeather.name}, {currentWeather.sys.country}
       </p>
-      <p className='text-7xl font-semibold relative'>
+      <p className='text-7xl md:text-[100px] font-semibold relative'>
         {currentWeather.main.temp.toFixed()}
         <span className='absolute top-4 text-4xl'>&#8451;</span>
       </p>
-      <div className='mt-4 text-violet-300/60 flex items-center text-xs justify-between'>
+      <div className='mt-4 text-violet-300/60 max-w-md mx-auto flex items-center text-xs justify-between'>
         <div>
           <img src={`${API_ICON_URL}${currentWeather.weather[0].icon}.png`} alt='Weather icon' />
         </div>

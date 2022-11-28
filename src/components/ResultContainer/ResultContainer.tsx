@@ -7,12 +7,13 @@ import ResultadoClima from './ResultadoClima';
 type Props = {
   currentWeather: CurrentWeatherProps | null;
   hourlyWeather: HourlyWeatherProps[];
+  localTime: string;
 };
 
-const ResultContainer: React.FC<Props> = ({ currentWeather, hourlyWeather }) => {
+const ResultContainer: React.FC<Props> = ({ currentWeather, hourlyWeather, localTime }) => {
   return (
     <div className='mx-3 md:mt-10'>
-      <FechaHora currentWeather={currentWeather} />
+      <FechaHora localTime={localTime} />
       <ResultadoClima currentWeather={currentWeather} />
       <PronosticoDiario hourlyWeather={hourlyWeather} />
     </div>
